@@ -3,9 +3,8 @@ import { CodeGenerator } from './code-generator'
 
 export const onStairCreated = functions.firestore.document('stairs/{stairId}').onUpdate(change => {
   const data = change.after.data() as { code: string } | undefined
-  const previousData = change.before.data() as { code: string } | undefined
 
-  if (data?.code !== undefined || previousData?.code !== undefined) {
+  if (data?.code !== undefined) {
     return null
   }
 
