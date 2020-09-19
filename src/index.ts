@@ -11,7 +11,7 @@ export const onStairCreated = functions.firestore.document('stairs/{stairId}').o
   const code = codeGenerator.generate()
   return change.ref.set(
     {
-      code
+      code: code.toString()
     },
     { merge: true }
   )
